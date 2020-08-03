@@ -1,1 +1,17 @@
 JWT authentication using Spring Boot
+
+create database with name `usersdb`
+
+Request :
+- POST \ localhost:8080/register
+-- requires
+	data = {username(str), email(str), password(str), contact(str), home_addr(str), office_addr(str) }
+- POST \ localhost:8080/authenticate
+-- requires
+	data = { username(str), password(str) }
+- POST \ localhost:8080/user
+-- requires
+	jwt (can be accessed by authenticate)
+- POST \ localhost:8080/update 
+-- requires	
+	data = {username(str), email(str), password(str), contact(str), home_addr(str), office_addr(str) }
