@@ -9,7 +9,7 @@
 - Start Database server.
 - Configure [applicaton.properties](https://github.com/apache15/AuthSpringBootMySQL/blob/master/src/main/resources/application.properties)
 - Clone [current repository](https://github.com/apache15/AuthSpringBootMySQL/)
-- cd to root of cloned repository and Run
+- cd to root of cloned repository and Run `com.auth.ApiAuthJwtApplication.java` or run command
     ```
     $ ./mvnw clean spring-boot:run
     ```
