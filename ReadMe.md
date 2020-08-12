@@ -8,7 +8,7 @@
 
 - Start Database server.
 - Configure [applicaton.properties](https://github.com/apache15/AuthSpringBootMySQL/blob/master/src/main/resources/application.properties)
-    <pre>
+```
     # set your secret key
     jwt.secret=authjwt
     # set your jdbc url
@@ -19,7 +19,8 @@
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
     spring.jpa.hibernate.ddl-auto=update
     spring.jpa.show-sql=true
-    </pre>
+```
+
 - Clone [current repository](https://github.com/apache15/AuthSpringBootMySQL/)
 - cd to root of repository
 - Run command
