@@ -1,11 +1,15 @@
-### Spring Boot MySQL JWT Auth
-##### Steps to be followed
+## Spring Boot MySQL JWT Auth
+
+|routes           | method | reuest |
+|-----------------|--------|--------|
+| `/authenticate` | POST | `{ "username": "johndoe98", "password":"your^Pass#123" }`|
+| `/register`     | POST | `{"username": "johndoe98", "firstName": "john", "lastName": "doe", "password":"your^Pass#123", "email":"vardhansahani@domain.com", "homeAddress":"Mumbai, Maharashtra.", "officeAddress":"Thane, Maharashtra.", "contact": "9999999999" }`|
+| `/user`         | POST | `{"Authorization": "Bearer <jwt-token-from-authentication>"}` |
 
 - Start MySQL
 - Create database with name springjwt
-- Clone repository ___https://github.com/apache15/spring-boot-mysql-jwt-auth___
-- cd to root of cloned repository
-- Run
+- Clone [current repository](https://github.com/apache15/AuthSpringBootMySQL/)
+- cd to root of cloned repository and Run
     ```
     $ ./mvnw clean spring-boot:run
     ```
