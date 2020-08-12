@@ -8,6 +8,19 @@
 
 - Start Database server.
 - Configure [applicaton.properties](https://github.com/apache15/AuthSpringBootMySQL/blob/master/src/main/resources/application.properties)
+    <pre>
+    # set your secret key
+    jwt.secret=authjwt
+    # set your jdbc url
+    spring.datasource.url=jdbc:mysql://localhost:3306/userdb?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    spring.datasource.username=root
+    spring.datasource.password=
+    spring.datasource.platform=mysql
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+    spring.jpa.hibernate.ddl-auto=update
+    spring.jpa.show-sql=true
+    </pre>
+
 - Clone [current repository](https://github.com/apache15/AuthSpringBootMySQL/)
 - cd to root of repository
 - Run command
@@ -16,7 +29,3 @@
     ```
     
 > Similarly it also provides functionality for checking username if already exists and update user details.
-
-<pre>
-
-</pre>
