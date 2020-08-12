@@ -17,9 +17,9 @@
 
 - Clone [current repository](https://github.com/apache15/AuthSpringBootMySQL/)
 - cd to root of repository
-- Run command
-    ```
+- Run command \
+    <code>
     $ ./mvnw clean spring-boot:run
-    ```
+    </code>
     
 > Similarly it also provides functionality for checking username if already exists and update user details.
