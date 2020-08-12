@@ -1,5 +1,5 @@
-## Spring Boot MySQL JWT Auth
-#### Steps to be followed
+### Spring Boot MySQL JWT Auth
+##### Steps to be followed
 
 - Start MySQL
 - Create database with name springjwt
