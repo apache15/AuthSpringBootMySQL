@@ -1,4 +1,4 @@
-## Spring Boot MySQL JWT Auth
+# Spring Boot MySQL JWT Authentication
 
 |API endpoint     | request-method | request-body |
 |-----------------|--------|--------|
@@ -9,7 +9,8 @@
 - Start Database server.
 - Configure [applicaton.properties](https://github.com/apache15/AuthSpringBootMySQL/blob/master/src/main/resources/application.properties)
 - Clone [current repository](https://github.com/apache15/AuthSpringBootMySQL/)
-- cd to root of cloned repository and Run `com.auth.ApiAuthJwtApplication.java` or run command
+- cd to root of repository
+- Run command
     ```
     $ ./mvnw clean spring-boot:run
     ```
