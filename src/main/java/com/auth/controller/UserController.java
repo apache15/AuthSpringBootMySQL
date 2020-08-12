@@ -19,7 +19,6 @@ import com.auth.config.JwtTokenUtil;
 import com.auth.model.DAOUser;
 import com.auth.model.JwtRequest;
 import com.auth.model.JwtResponse;
-import com.auth.model.UserDTO;
 import com.auth.service.UserService;
 
 @RestController
@@ -49,7 +48,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
+	public ResponseEntity<?> saveUser(@RequestBody DAOUser user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
@@ -58,7 +57,7 @@ public class UserController {
 		return ResponseEntity.ok(userDetailsService.getUser());
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public ResponseEntity<DAOUser> updateUser(@RequestBody UserDTO user, Principal pl) throws Exception {
+	public ResponseEntity<DAOUser> updateUser(@RequestBody DAOUser user, Principal pl) throws Exception {
 		return ResponseEntity.ok(userDetailsService.updateUser(user));
 	}
 

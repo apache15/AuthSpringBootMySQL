@@ -12,7 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.auth.model.DAOUser;
-import com.auth.model.UserDTO;
 import com.auth.repository.UserRepository;
 
 @Service
@@ -39,24 +38,45 @@ public class UserService implements UserDetailsService {
 				new ArrayList<>());
 	}
 
-	public DAOUser save(UserDTO user) {
-		DAOUser newUser = new DAOUser();
-		newUser.setUsername(user.getUsername());
-		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		newUser.setEmail(user.getEmail());
-		newUser.setHome_addr(user.getHome_addr());
-		newUser.setOffice_addr(user.getOffice_addr());
-		newUser.setContact(user.getContact());
-		return userRepo.save(newUser);
+	public DAOUser save(DAOUser user) {
+		DAOUser findUser = userRepo.findByUsername(user.getUsername());
+
+		if(findUser == null) {
+			DAOUser newUser = userRepo.save(new DAOUser(
+					user.getUsername(),
+					user.getFirstName(),
+					user.getLastName(),
+					bcryptEncoder.encode(user.getPassword()),
+					user.getEmail(),
+					user.getContact(),
+					user.getHomeAddress(),
+					user.getOfficeAddress()
+			));
+			newUser.setPassword("");
+			return newUser;
+		}else {
+			return new DAOUser("User already exists");
+		}
 	}
 
-	public DAOUser updateUser(UserDTO user) {
+	public DAOUser updateUser(DAOUser user) {		
 		DAOUser upuser = userRepo.findByUsername(getUserName());
-		upuser.setEmail(user.getEmail());
-		upuser.setContact(user.getContact());
-		upuser.setHome_addr(user.getHome_addr());
-		upuser.setOffice_addr(user.getOffice_addr());
-		return userRepo.save(upuser);
+		if(upuser == null) {
+			return new DAOUser("User does not exists");
+		}else {
+			DAOUser updtUser = userRepo.save(new DAOUser(
+					user.getUsername(),
+					user.getFirstName(),
+					user.getLastName(),
+					bcryptEncoder.encode(user.getPassword()),
+					user.getEmail(),
+					user.getContact(),
+					user.getHomeAddress(),
+					user.getOfficeAddress()
+			));
+			updtUser.setPassword("");
+			return updtUser;
+		}
 	}
 
 	public DAOUser getUser() {
