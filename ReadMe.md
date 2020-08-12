@@ -10,7 +10,7 @@
 - Configure [applicaton.properties](https://github.com/apache15/AuthSpringBootMySQL/blob/master/src/main/resources/application.properties)
     ```
     jwt.secret=authjwt
-    spring.datasource.url=jdbc:mysql://localhost:3306/userdb?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    spring.datasource.url=jdbc:mysql://localhost:3306/userdb?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=true
     spring.datasource.username=<mysql-username>
     spring.datasource.password=<mysql-password>
     ```
