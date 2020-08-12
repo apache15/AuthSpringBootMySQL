@@ -4,7 +4,7 @@
 |-----------------|--------|--------|
 | `/authenticate` | POST | <code> { "username": "johndoe98", "password":"your^Pass#123" } </code> |
 | `/register`     | POST | <code> {"username": "johndoe98", "firstName": "john", "lastName": "doe", "password":"your^Pass#123", "email":"vardhansahani@domain.com", "homeAddress":"Mumbai, Maharashtra.", "officeAddress":"Thane, Maharashtra.", "contact": "9999999999" } </code> |
-| `/user`         | POST | <code> {"Authorization": "Bearer <jwt-token-from-authentication>"} </code>  |
+| `/user`         | POST | <code> {"Authorization": "Bearer \<jwt-token-from-authentication\>"} </code>  |
 
 - Start Database server.
 - Configure [applicaton.properties](https://github.com/apache15/AuthSpringBootMySQL/blob/master/src/main/resources/application.properties)
