@@ -11,7 +11,7 @@
 #### Steps before deploying app
 - Start Database server.
 - Configure [applicaton.properties](https://github.com/apache15/AuthSpringBootMySQL/blob/master/src/main/resources/application.properties)
-    ```
+    ```txt
     jwt.secret=authjwt
     spring.datasource.url=jdbc:mysql://localhost:3306/userdb?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=true
     spring.datasource.username=<mysql-username>
@@ -19,10 +19,9 @@
     ```
 
 - Clone [current repository](https://github.com/apache15/AuthSpringBootMySQL/)
-- cd to root of repository
 - Run command \
     ```sh
-    $ cd 
+    $ cd <root-dir-of-project>
     $ sudo ./mvnw clean spring-boot:run
     ```
     
