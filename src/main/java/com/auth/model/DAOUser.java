@@ -17,36 +17,23 @@ public class DAOUser {
 	private long id;
 	@Column(name = "username")
 	private String username;
-	@Column(name = "first_name")
-	private String firstName;
-	@Column(name = "last_name")
-	private String lastName;
+	@Column(name = "name")
+	private String name;
 	@Column(name = "password")
 	private String password;
 	@Column(name = "email")
 	private String email;
-	@Column(name = "contact")
-	private String contact;
-	@Column(name = "home_address")
-	private String homeAddress;
-	@Column(name = "office_address")
-	private String officeAddress;
 
 	public DAOUser() {
 	}
 	public DAOUser(String message) {
 		this.username = message;
 	}
-	public DAOUser(String username, String firstName, String lastName, String password, String email,
-			String contact, String homeAddress, String officeAddress) {
+	public DAOUser(String username, String name, String password, String email) {
 		this.username = username;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
 		this.password = password;
 		this.email = email;
-		this.contact = contact;
-		this.homeAddress = homeAddress;
-		this.officeAddress = officeAddress;
 	}
 	
 	public long getId() {
@@ -61,17 +48,11 @@ public class DAOUser {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPassword() {
 		return password;
@@ -84,23 +65,5 @@ public class DAOUser {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getContact() {
-		return contact;
-	}
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-	public String getHomeAddress() {
-		return homeAddress;
-	}
-	public void setHomeAddress(String homeAddress) {
-		this.homeAddress = homeAddress;
-	}
-	public String getOfficeAddress() {
-		return officeAddress;
-	}
-	public void setOfficeAddress(String officeAddress) {
-		this.officeAddress = officeAddress;
 	}
 }

@@ -32,7 +32,7 @@ public class UserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		DAOUser user = userRepo.findByUsername(username);
 		if (user == null) {
-			throw new UsernameNotFoundException("User not found with username: " + username);
+			throw new UsernameNotFoundException("User not found with e: " + username);
 		}
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 				new ArrayList<>());
@@ -44,15 +44,12 @@ public class UserService implements UserDetailsService {
 		if(findUser == null) {
 			DAOUser newUser = userRepo.save(new DAOUser(
 					user.getUsername(),
-					user.getFirstName(),
-					user.getLastName(),
+					user.getName(),
 					bcryptEncoder.encode(user.getPassword()),
-					user.getEmail(),
-					user.getContact(),
-					user.getHomeAddress(),
-					user.getOfficeAddress()
+					user.getEmail()
 			));
 			newUser.setPassword("");
+			userRepo.save(newUser);
 			return newUser;
 		}else {
 			return new DAOUser("User already exists");
@@ -66,13 +63,9 @@ public class UserService implements UserDetailsService {
 		}else {
 			DAOUser updtUser = userRepo.save(new DAOUser(
 					user.getUsername(),
-					user.getFirstName(),
-					user.getLastName(),
+					user.getName(),
 					bcryptEncoder.encode(user.getPassword()),
-					user.getEmail(),
-					user.getContact(),
-					user.getHomeAddress(),
-					user.getOfficeAddress()
+					user.getEmail()
 			));
 			updtUser.setPassword("");
 			return updtUser;

@@ -10,6 +10,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ import com.auth.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "*")
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -34,7 +36,7 @@ public class UserController {
 	@Autowired
 	private UserService userDetailsService;
 
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@PostMapping(value = "/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
@@ -47,16 +49,16 @@ public class UserController {
 		return ResponseEntity.ok(new JwtResponse(token));
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@PostMapping(value = "/register")
 	public ResponseEntity<?> saveUser(@RequestBody DAOUser user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@PostMapping(value = "/user")
 	public ResponseEntity<DAOUser> getUser() throws Exception {
 		
 		return ResponseEntity.ok(userDetailsService.getUser());
 	}
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@PostMapping(value = "/update")
 	public ResponseEntity<DAOUser> updateUser(@RequestBody DAOUser user, Principal pl) throws Exception {
 		return ResponseEntity.ok(userDetailsService.updateUser(user));
 	}
